@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import HomeRoute from './HomeRoute';
@@ -22,11 +22,14 @@ export const BottonNav = function bottomNavigation() {
         <Tab.Navigator
             initialRouteName="HomeRoute"
             tabBarOptions={{
-                style: { height: Platform.OS === "ios" ? wp(25) : wp(20), paddingTop: 20 },
+                style: {
+                    height: Platform.OS === "ios" ? wp(25) : Dimensions.get('window').width > 390 ? wp(15) : wp(20),
+                    paddingTop: Platform.OS === "ios" ? 20 : Dimensions.get('window').width > 390 ? 10 : 20
+                },
                 labelPosition: 'below-icon',
                 labelStyle: {
                     marginTop: 10,
-                    marginBottom: Platform.OS === "ios" ? 0 : -30
+                    marginBottom: Platform.OS === "ios" ? 0 : Dimensions.get('window').width > 390 ? 5 : -30
                 },
                 activeTintColor: '#b7d335'
             }}>

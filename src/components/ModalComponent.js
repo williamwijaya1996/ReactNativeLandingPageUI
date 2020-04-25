@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, View, StyleSheet, TouchableWithoutFeedback, Text, Image } from 'react-native';
+import { Modal, View, StyleSheet, TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import closeIcon from './../assets/images/close.png';
 import { TextBold } from './TextComponent';
@@ -13,7 +13,7 @@ export const ModalPopUpFromBottom = (props) => {
                         <TouchableWithoutFeedback onPress={props.onClose}>
                             <Image source={closeIcon} style={{ width: wp(4), height: wp(4) }} />
                         </TouchableWithoutFeedback>
-                        <View style={{marginVertical:wp(3)}}>
+                        <View style={{ marginVertical: wp(3) }}>
                             <TextBold style={{ fontSize: 24 }}>More Lemonilo features!</TextBold>
                         </View>
                         {props.children}
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     modalPopUpFromBottomStyle: {
         backgroundColor: 'white',
-        height: hp(100) / 3,
+        height: Dimensions.get('window').height > 800 ? hp(100) / 3 : hp(100) / 2.5,
         width: '100%',
         alignSelf: 'center',
         borderTopLeftRadius: 10,
