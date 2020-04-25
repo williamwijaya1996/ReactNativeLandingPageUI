@@ -86,6 +86,7 @@ class IndexScreen extends BaseComponent {
         const carouselImageData = [{ image: imageCarousel1 }, { image: imageCarousel2 }, { image: imageCarousel3 }, { image: imageCarousel4 }, { image: imageCarousel5 }
             , { image: imageCarousel6 }, { image: imageCarousel7 }, { image: imageCarousel8 }, { image: imageCarousel9 }, { image: imageCarousel10 }]
         const { activeSlide, openMoreModal } = this.state
+        console.log(Dimensions.get('window').width)
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView>
